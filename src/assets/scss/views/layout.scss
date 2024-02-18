@@ -272,3 +272,76 @@ header {
     padding: 20px 0 0 0;
   }
 }
+
+.table-top__section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  .counter-data {
+    @include fontoption(12px,$infoColor, 500, 12px);
+  }
+  .button__wrap {
+    margin-top: 0;
+    gap: 10px;
+  }
+}
+
+.page-stitle {
+  margin-top: 33px;
+  h3 {
+    position: relative;
+    @include fontoption(14px, $primary, 500, 14px);
+    background: url(../../images/icon/icon-align-justify.svg) no-repeat left center;
+    padding-left: 21px;
+  }
+}
+.data-input__section--box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 25px;
+  .search__section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 246px;
+    form {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap:6px;
+      input {
+        height: 28px;
+      }
+    }
+  }
+  .field-input__section {
+    width: 100%;
+    flex:1;
+    height: 69px;
+    border: 1px solid $tableBorderColor;
+    form {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 100%;
+      padding: 0 16px;
+    }
+    strong {
+      @include fontoption(14px, $primary, 500, 14px);
+    }
+    .select {
+      width: 130px;
+    }
+    input {
+      width: 297px;
+      height: 28px;
+    }
+  }
+  .button__wrap {
+    align-items: center;
+    padding:0;
+  }
+}

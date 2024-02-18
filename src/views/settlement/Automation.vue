@@ -11,115 +11,99 @@
     </div>
     <div class="cont">
       <div class="data-list">
-          <div class="button__wrap flex-end">
-              <MyBtn                            
-                  buttonName="전체 다운로드"
-                  type="submit"
-                  iconName="icon-file-text"
-                  iconDirection="icon-left"
-                  color="btn success"                    
-                  size="medium"                   
-              >  
-              </MyBtn>
-          </div>       
+          <div class="table-top__section">
+            <div class="counter-data">
+              대상년월 : 2023.12
+            </div>
+            <div class="button__wrap flex-end">
+                <MyBtn                            
+                    buttonName="한전업로드"                  
+                    iconName="icon-uploadicon"
+                    iconDirection="icon-left"
+                    color="btn tertiary"                    
+                    size="medium"                   
+                >  
+                </MyBtn>
+                <MyBtn                            
+                    buttonName="정산서반영"                  
+                    iconName="icon-refresh-cw"
+                    iconDirection="icon-left"
+                    color="btn success"                    
+                    size="medium"                   
+                >  
+                </MyBtn>                          
+                <MyBtn                            
+                    buttonName="전체 다운로드"
+                    type="text"
+                    iconName="icon-file-text"
+                    iconDirection="icon-left"
+                    color="btn success"                    
+                    size="medium"                   
+                >  
+                </MyBtn>
+            </div>    
+          </div>
+   
           <!-- //table     -->
           <MyTable
             tableName="정산자동화"
             types="list"        
           >
             <template #colWidth>
-                <col width="6%" />
+                <col width="" />
                 <col width="7%" />
-                <col width="11%" />
-                <col width="11%" />
-                <col width="11%" />
-                <col width="11%" />
-                <col width="11%" />
-                <col width="11%" />
-                <col width="11%" />
+                <col width="7%" />
+                <col width="7%" />
+                <col width="7%" />
+                <col width="7%" />
+                <col width="7%" />
+                <col width="7%" />
+                <col width="7%" />
+                <col width="7%" />
+                <col width="7%" />
+                <col width="7%" />
+                <col width="7%" />
             </template>
             <template #thead>
                 <tr>
-                    <th scope="col">NO</th>
-                    <th scope="col">브랜드</th>
-                    <th scope="col">상호</th>
-                    <th scope="col">물류</th>
-                    <th scope="col">웨이브포스</th>
-                    <th scope="col">머니온</th>
-                    <th scope="col">샘플러스</th>
-                    <th scope="col">페이코</th>
-                    <th scope="col">시크릿오더</th>
-                    <th scope="col">한전온</th>
+                    <th scope="col" rowspan="2">매방명</th>
+                    <th scope="col" colspan="2">물류매출</th>
+                    <th scope="col">웰포스</th>
+                    <th scope="col" colspan="4">머니온</th>
+                    <th scope="col" colspan="3">페이코</th>
+                    <th scope="col" rowspan="2">시크릿오더</th>
+                    <th scope="col" rowspan="2">한전</th>
                 </tr>
+                <tr>
+                    <th scope="col">과세</th>
+                    <th scope="col">면세</th>
+                    <th scope="col">현금</th>
+                    <th scope="col">카드</th>
+                    <th scope="col">카드(백업)</th>
+                    <th scope="col">현금</th>
+                    <th scope="col">현금(백업)</th>
+                    <th scope="col">총주문금액</th>
+                    <th scope="col">결제금액</th>
+                    <th scope="col">페이코쿠폰</th>
+                </tr>                
             </template>    
             <template #tbody>
                 <tr 
-                    v-for="data in 1"
-                    :key="data"
-                >
-                    <td><span>186</span></td>
-                    <td><span>블루포트</span></td>
-                    <td><span>장로신학대학교</span></td>
-                    <td>
-                      <VSelect
-                        title="물류 선택"
-                        v-model="vselected"
-                        :options="options"
-                        placeholder="물류 선택 선택하세요" 
-                      />
-                    </td>
-                    <td>
-                      <VSelect
-                        title="물류 선택"
-                        v-model="vselected"
-                        :options="options"
-                        :condition="false"
-                        placeholder="물류 선택 선택하세요" 
-                      />
-                    </td>
-                    <td>
-                      <VSelect
-                        title="물류 선택"
-                        v-model="vselected"
-                        :options="options"
-                        placeholder="물류 선택 선택하세요" 
-                      />                      
-                    </td>
-                    <td>
-                      <VSelect
-                        title="물류 선택"
-                        v-model="vselected"
-                        :options="options"
-                        :condition="false"
-                        placeholder="물류 선택 선택하세요" 
-                      />                      
-                    </td>
-                    <td>
-                      <VSelect
-                        title="물류 선택"
-                        v-model="vselected"
-                        :condition="false"
-                        :options="options"
-                        placeholder="물류 선택 선택하세요" 
-                      />                      
-                    </td>
-                    <td>
-                      <VSelect
-                        title="물류 선택"
-                        v-model="vselected"
-                        :condition="false"
-                        :options="options"
-                        placeholder="물류 선택 선택하세요" 
-                      />                      
-                    </td>                                        
-                    <td>
-                      <VSelect
-                        title="물류 선택"
-                        v-model="vselected"
-                        :options="options"
-                        placeholder="물류 선택 선택하세요" 
-                      />                      
-                    </td>
+                    v-for="data in 5"
+                    :key="data"                >
+                    <td><span>남서울대학교</span></td>
+                    <td>55,000,000</td>
+                    <td>55,000,000</td>
+                    <td>55,000,000</td>
+                    <td>55,000,000</td>
+                    <td>55,000,000</td>
+                    <td>55,000,000</td>
+                    <td>55,000,000</td>
+                    <td>55,000,000</td>
+                    <td>55,000,000</td>                    
+                    <td>55,000,000</td>
+                    <td>55,000,000</td>
+                    <td>55,000,000</td>
                 </tr>
             </template>              
           </MyTable>          

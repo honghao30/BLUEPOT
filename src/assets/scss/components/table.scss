@@ -19,7 +19,8 @@
   }
   th {
     background-color: $secondary;
-    @include fontoption(14px, $primary, 700, 16px);    
+    @include fontoption(14px, $primary, 700, 16px);   
+    border: 1px solid #fff; 
   }
   td {
     border-bottom: 1px solid $tableBorderColor;
@@ -30,7 +31,11 @@
       text-overflow: ellipsis;
       white-space: nowrap;  
       width: 100%;      
-    }    
+    }   
+    &.text-l {
+      text-align: left;
+      padding-left: 15px;
+    }
   }
 }
 

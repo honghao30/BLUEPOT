@@ -152,6 +152,63 @@ $radius: 4px;
       height:18px;
       background: url(../../images/icon/icon-file-text.svg) no-repeat center center;
     }
+    .icon-refresh-cw {
+      display: block;
+      width:18px;
+      height:18px;
+      background: url(../../images/icon/icon-refresh-cw.svg) no-repeat center center;
+    }    
+  } 
+}
+.darkSuccess {
+  @include btntype(16px, $darkSuccessColor, $darkSuccessColor,#fff, 6px, $darkSuccessColor,#fff, $darkSuccessColor);
+  &:disabled {
+    background-color:$darkSuccessColor;
+    border-color:$darkSuccessColor;
+    &:hover, &:active {
+      background-color:$darkSuccessColor;
+      border-color:$darkSuccessColor;
+    }
+  }  
+  &.icon-left {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    .icon-file-text {
+      display: block;
+      width:18px;
+      height:18px;
+      background: url(../../images/icon/icon-file-text.svg) no-repeat center center;
+    }
+    .icon-refresh-cw {
+      display: block;
+      width:18px;
+      height:18px;
+      background: url(../../images/icon/icon-refresh-cw.svg) no-repeat center center;
+    }    
+  }   
+}
+.tertiary {
+  @include btntype(16px, $tertiaryColor, $tertiaryColor,#fff, 6px, $tertiaryColor,#fff, $tertiaryColor);
+  &:disabled {
+    background-color:$tertiaryColor;
+    border-color:$tertiaryColor;
+    &:hover, &:active {
+      background-color:$tertiaryColor;
+      border-color:$tertiaryColor;
+
+    }
+  }     
+  &.icon-left {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    .icon-uploadicon {
+      display: block;
+      width:18px;
+      height:18px;
+      background: url(../../images/icon/icon-uploadicon.svg) no-repeat center center;
+    }
   } 
 }
 // 개별 아이콘

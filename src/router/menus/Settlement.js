@@ -4,5 +4,10 @@ export default [
         path: "/Automation",
         name: "Automation",
         component: () => import('@/views/Settlement/Automation.vue')
-    }
+    },
+    {
+        path: "/WriteStatement",
+        name: "WriteStatement",
+        component: () => import('@/views/Settlement/WriteStatement.vue')
+    }    
   ]
