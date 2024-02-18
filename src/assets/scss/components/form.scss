@@ -3,6 +3,7 @@ $inputHeight: 40px;
 $font-tsize: 14px;
 $inputColor: #DDDFE1;
 $bordersColor: #7FA7CA;
+$selectHeight: 26px;
 $textareaHeight: 100px;
 
 // input
@@ -34,5 +35,37 @@ $textareaHeight: 100px;
 .input {
   input {
     @include inputBasic;
+  }
+}
+
+.select__wrap {  
+  .select {
+    width: 100%;
+    height: $selectHeight;
+    border: 1px solid $bordersColor;
+    border-radius: 5px;    
+    padding:1px;
+    select {
+      border: 0;
+      width: 100%;
+      height: 100%;
+      @include fontoption(12px,$grayColor, 300, 12px);
+      padding-left: 4px;
+      display: flex;
+      align-items: center;
+      -moz-appearance:none;
+      -webkit-appearance:none;
+      appearance:none;
+      background: url(../../images/icon/icon-arrow.svg) no-repeat 92% center;
+      background-size: auto auto;
+    }    
+    &.de-connection {
+      border: 1px solid $warningColor;
+      background-color: $warningColor;
+      select {
+        color: #fff;
+        background: $warningColor url(../../images/icon/icon-arrow-pink.svg)  no-repeat 92% center;;
+      }
+    }
   }
 }

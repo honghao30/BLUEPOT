@@ -1,7 +1,9 @@
 <template>
   <div class="select__wrap">
     <label :for="randomId" v-if="label">{{ label }}</label>
-    <div class="select">        
+    <div class="select"
+    :class="{ 'de-connection': !condition }"
+    >        
         <select :title="placeholder"  @change="$emit('update:modelValue', $event.target.value)"  >
           <option v-for="option in options" :key="option">{{ option.title }}</option>
         </select>
@@ -39,6 +41,10 @@ modelValue: String,
 disabled: {
   type: Boolean,
   default: false
+},
+condition: {
+  type: Boolean,
+  default: true
 }
 })
 
@@ -56,11 +62,4 @@ randomId.value = randomNumber()
 </script>
 
 <style lang="scss">
-.select {
-  select {
-    height: 100%;
-    padding: 0px 40px 0px 16px;
-  }
-}
-.error-text {color: red;}
 </style>

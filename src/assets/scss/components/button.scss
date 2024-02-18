@@ -127,8 +127,31 @@ $radius: 4px;
     &:hover, &:active {
       background-color:#ccc;
       border-color:#ccc;
+      opacity: 0.5;
     }
   }      
 }
+.success {
+  @include btntype(16px, $successColor, $successColor,#fff, 6px, $successColor,#fff, $successColor);
+  &:disabled {
+    background-color:$successColor;
+    border-color:$successColor;
+    &:hover, &:active {
+      background-color:$successColor;
+      border-color:$successColor;
 
+    }
+  }     
+  &.icon-left {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    .icon-file-text {
+      display: block;
+      width:18px;
+      height:18px;
+      background: url(../../images/icon/icon-file-text.svg) no-repeat center center;
+    }
+  } 
+}
 // 개별 아이콘

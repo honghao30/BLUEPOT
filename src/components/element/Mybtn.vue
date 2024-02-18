@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"    
-    :class="[iconOnly ? 'btn-' + iconName : [types, color, size]]"
+    :class="[iconOnly ? 'btn-' + iconName : [types, color, size, iconDirection]]"
     :disabled="disabled"    
   >
     <slot name="svg-icon"></slot>
