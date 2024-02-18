@@ -1,11 +1,11 @@
 <template>
   <button
     type="button"    
-    :class="[iconOnly ? 'btn-' + iconName : [types, color, size, 'btn-' + iconName, iconDirection]]"
+    :class="[iconOnly ? 'btn-' + iconName : [types, color, size]]"
     :disabled="disabled"    
   >
     <slot name="svg-icon"></slot>
-    <!-- // slot 으로 svg 아이콘 -->
+    <!-- // slot 으로 svg 아이콘 'btn-' + iconName, iconDirection -->
     <i
       v-if="iconName !== ''"
       :class="iconName"    

@@ -5,7 +5,7 @@
           <h1>
             <img src="../../assets/images/login/login-title.svg" alt="WELCOME 블루팟에 오신 것을 환영합니다. 아이디와 비밀번호를 입력하세요" />
           </h1>
-          <form>
+          <form @submit.prevent="submitLogin">
             <ul>
                 <li>
                     <MyInput >
@@ -35,17 +35,18 @@
                 <MyBtn                            
                     buttonName="로그인"
                     type="submit"
-                    color="btn primary wd-full"                    
-                    size="medium"                        
+                    color="btn primary"                    
+                    size="medium wd-full" 
+                    :disabled="!userInfo.userId || !userInfo.password"
                 >  
                 </MyBtn>
             </div>                          
           </form>
-          <div class="idpw-find">
-            <router-link to="/Register">
+          <div class="login-help">
+            <router-link to="#" class="icon-id">
                 아이디 찾기
             </router-link>
-            <router-link to="#" @click="isAlert(event)">
+            <router-link to="#" class="icon-pw">
                 비밀번호 찾기
             </router-link>    
           </div>
@@ -66,6 +67,10 @@
         password: ''
     }
 )
+
+const submitLogin = () => {
+  console.log('로그인');
+}
 
 </script>
 
