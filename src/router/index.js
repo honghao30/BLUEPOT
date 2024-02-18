@@ -3,6 +3,7 @@ import NotFound from '@/views/errors/404.vue'
 // 파일 링크
 import Login from './menus/Login'
 import Main from './menus/Main'
+import Settlement from './menus/Settlement'
 // import PubGuides from './menus/pubGuide'
 
 // 라우터 
@@ -12,7 +13,8 @@ const routes = [
         component: NotFound
     },   
     ...Login,
-    ...Main    
+    ...Main,
+    ...Settlement  
 ]
 // 라우터 생성
 const router = createRouter({
