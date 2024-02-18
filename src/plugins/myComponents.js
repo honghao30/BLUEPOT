@@ -14,14 +14,14 @@ import LoadingDot from "@/components/element/LoadingDot.vue"
 
 export default {
   install(app) {
+    app.component('MyInput', MyInput) 
     app.component('Title', Title)
     app.component('Button', Button)    
     app.component('MyBtn', MyBtn)    
     app.component('ModalView', ModalView)  
     app.component('MyLy', MyLy)  
     app.component('ToolTip', ToolTip)  
-    app.component('MySelect', MySelect) 
-    app.component('MyInput', MyInput) 
+    app.component('MySelect', MySelect)     
     app.component('VSelect', VSelect) 
     app.component('InputEl', InputEl) 
     app.component('MyTable', MyTable) 

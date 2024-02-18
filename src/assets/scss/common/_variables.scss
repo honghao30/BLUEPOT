@@ -36,6 +36,18 @@ $desktop1025: "screen and (min-width : 1025px)";
     }
 }
 
+
+@function to-rem($size) {
+    $root-size: 16px;
+    @if string == type-of($size) {
+        @return $size;
+    } @else if 0 == $size {
+        @return 0;
+    } @else {
+        @return calc($size / $root-size * 1rem);
+    }
+}
+
 @function rem($value) {
     // @debug type-of($value);
     @if 0 == str-index(#{$value}, 'px') {
@@ -60,6 +72,13 @@ $defaultColor: #000000;
 $pointColor: #2F77FB;
 $grayColor: #DDDDDD;
 $errorColor: #FF4830;
+
+$primary:#000;
+$secondary:#000;
+$successColor: #000;
+$infoColor: #000;
+$warningColor: #000;
+$dangerColor: #000;
 
 //폰트
 $defaultFontSize: 14px;
