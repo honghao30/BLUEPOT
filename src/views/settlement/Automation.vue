@@ -90,8 +90,14 @@
             <template #tbody>
                 <tr 
                     v-for="data in 5"
-                    :key="data"                >
-                    <td><span>남서울대학교</span></td>
+                    :key="data"                
+                >
+                    <td class="text-l">
+                      <span class="checkbox">
+                        <input type="checkbox" name="checkbox" id="radio1" />
+                        <label for="radio1"><span class="irtext">설정</span></label>
+                      </span>                      
+                      남서울대학교</td>
                     <td>55,000,000</td>
                     <td>55,000,000</td>
                     <td>55,000,000</td>
