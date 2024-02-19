@@ -3,26 +3,26 @@ export default [
     {
         path: "/Automation",
         name: "Automation",
-        component: () => import('@/views/setTlement/Automation.vue')
+        component: () => import('@/views/settlement/Automation.vue')
     },
     {
         path: "/ConnectionManagement",
         name: "ConnectionManagement",
-        component: () => import('@/views/setTlement/ConnectionManagement.vue')
+        component: () => import('@/views/settlement/ConnectionManagement.vue')
     },    
     {
         path: "/WriteStatement",
         name: "WriteStatement",
-        component: () => import('@/views/setTlement/WriteStatement.vue')
+        component: () => import('@/views/settlement/WriteStatement.vue')
     },
     {
         path: "/SearchStatement",
         name: "SearchStatement",
-        component: () => import('@/views/setTlement/SearchStatement.vue')
+        component: () => import('@/views/settlement/SearchStatement.vue')
     },
     {
         path: "/taxBillSummary",
         name: "taxBillSummary",
-        component: () => import('@/views/setTlement/taxBillSummary.vue')
+        component: () => import('@/views/settlement/taxBillSummary.vue')
     }    
   ]
