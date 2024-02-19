@@ -7,7 +7,6 @@ import MyTable from "@/components/element/TableCmp.vue"
 import VSelect from "@/components/form/Select.vue"
 
 import ModalView from "@/components/modal/ModalView.vue"
-import LoadingDot from "@/components/element/LoadingDot.vue"
 
 export default {
   install(app) {
@@ -20,7 +19,6 @@ export default {
     app.component('Button', Button)          
     app.component('ModalView', ModalView)  
           
-    app.component('InputEl', InputEl)         
-    app.component('LoadingDot', LoadingDot) 
+    app.component('InputEl', InputEl)             
   }
 }

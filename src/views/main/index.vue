@@ -61,15 +61,19 @@
 
 <script setup>
  import { reactive, ref, onMounted } from 'vue'
+ import { router } from '@/router'
+
  const userInfo = reactive(
-    {
-        userId: '',
-        password: ''
-    }
+  {
+    userId: '',
+    password: ''
+  }
 )
 
-const submitLogin = () => {
-  console.log('로그인');
+const submitLogin = () => {  
+  alert('로그인 되었습니다.') // 개발시 삭제
+  router.push({ name: 'ConnectionManagement' })
+
 }
 
 </script>

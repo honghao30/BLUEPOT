@@ -22,7 +22,7 @@
               >  
               </MyBtn>
           </div>       
-          <!-- //table     -->
+          <!-- //table -->
           <MyTable
             tableName="연결관리(미연결매장)"
             types="list"        
@@ -128,7 +128,7 @@
   </div>
 </template>
 <script setup>
-import { ref, defineProps, defineEmits, onBeforeMount, onUnmounted } from 'vue'
+import { ref } from 'vue'
 const options = [
   {
     title: '장로신학대학',

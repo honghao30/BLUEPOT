@@ -6,6 +6,11 @@ export default [
         component: () => import('@/views/Settlement/Automation.vue')
     },
     {
+        path: "/ConnectionManagement",
+        name: "ConnectionManagement",
+        component: () => import('@/views/Settlement/ConnectionManagement.vue')
+    },    
+    {
         path: "/WriteStatement",
         name: "WriteStatement",
         component: () => import('@/views/Settlement/WriteStatement.vue')

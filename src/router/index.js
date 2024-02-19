@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import NotFound from '@/views/errors/404.vue'
 // 파일 링크
 import Login from './menus/Login'
-import Main from './menus/Main'
+// import Store from './menus/Store'
 import Settlement from './menus/Settlement'
 // import PubGuides from './menus/pubGuide'
 
@@ -13,7 +13,7 @@ const routes = [
         component: NotFound
     },   
     ...Login,
-    ...Main,
+    // ...Store,
     ...Settlement  
 ]
 // 라우터 생성
