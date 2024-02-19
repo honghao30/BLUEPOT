@@ -14,5 +14,10 @@ export default [
         path: "/SearchStatement",
         name: "SearchStatement",
         component: () => import('@/views/Settlement/SearchStatement.vue')
+    },
+    {
+        path: "/taxBillSummary",
+        name: "taxBillSummary",
+        component: () => import('@/views/Settlement/taxBillSummary.vue')
     }    
   ]

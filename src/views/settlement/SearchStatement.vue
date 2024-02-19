@@ -11,7 +11,7 @@
     </div>
     <div class="cont">
       <div class="data-list">
-        <div class="search__list-top">
+          <div class="search__list-top">
               <form @submit.prevent="search">
                 <VSelect
                     title="물류 선택"

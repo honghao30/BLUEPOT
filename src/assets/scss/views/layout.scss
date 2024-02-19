@@ -344,6 +344,13 @@ header {
     align-items: center;
     padding:0;
   }
+  &.two-column {
+    justify-content: space-between;
+    margin-top: 20px;
+    .search__list-top {
+      margin-top: 0;
+    }
+  }
 }
 
 // 리스트 조회
