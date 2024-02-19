@@ -42,8 +42,7 @@
                 >  
                 </MyBtn>
             </div>    
-          </div>
-   
+          </div>   
           <!-- //table     -->
           <MyTable
             tableName="정산자동화"
@@ -112,7 +111,8 @@
                     <td>55,000,000</td>
                 </tr>
             </template>              
-          </MyTable>          
+          </MyTable>   
+                 
       </div>
     </div>
   </div>
