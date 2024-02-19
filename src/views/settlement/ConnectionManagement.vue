@@ -54,12 +54,12 @@
             </template>    
             <template #tbody>
                 <tr 
-                    v-for="data in 1"
-                    :key="data"
+                    v-for="data in tableData"
+                    :key="data.index"
                 >
-                    <td><span>186</span></td>
-                    <td><span>블루포트</span></td>
-                    <td><span>장로신학대학교</span></td>
+                    <td><span>{{ data.No }}</span></td>
+                    <td><span>{{ data.Brand }}</span></td>
+                    <td><span>{{ data.businessName }}</span></td>
                     <td>
                       <VSelect
                         title="물류 선택"
@@ -70,54 +70,54 @@
                     </td>
                     <td>
                       <VSelect
-                        title="물류 선택"
+                        title="웨이브포스 선택"
                         v-model="vselected"
-                        :options="options"
-                        :condition="false"
-                        placeholder="물류 선택 선택하세요" 
+                        :options="options2"
+                        :condition="!options2"
+                        placeholder="웨이브포스 선택 선택하세요" 
                       />
                     </td>
                     <td>
                       <VSelect
-                        title="물류 선택"
+                        title="머니온 선택"
                         v-model="vselected"
-                        :options="options"
-                        placeholder="물류 선택 선택하세요" 
+                        :options="options3"
+                        placeholder="머니온 선택 선택하세요" 
                       />                      
                     </td>
                     <td>
                       <VSelect
-                        title="물류 선택"
+                        title="샘플러스 선택"
                         v-model="vselected"
-                        :options="options"
-                        :condition="false"
-                        placeholder="물류 선택 선택하세요" 
+                        :options="options4"
+                        :condition="!options4"
+                        placeholder="샘플러스 선택 선택하세요" 
                       />                      
                     </td>
                     <td>
                       <VSelect
-                        title="물류 선택"
+                        title="페이코 선택"
                         v-model="vselected"
-                        :condition="false"
-                        :options="options"
-                        placeholder="물류 선택 선택하세요" 
+                        :condition="!options5"
+                        :options="options5"
+                        placeholder="페이코 선택 선택하세요" 
                       />                      
                     </td>
                     <td>
                       <VSelect
-                        title="물류 선택"
+                        title="시크릿오더 선택"
                         v-model="vselected"
-                        :condition="false"
-                        :options="options"
-                        placeholder="물류 선택 선택하세요" 
+                        :condition="!options6"
+                        :options="options6"
+                        placeholder="시크릿오더 선택 선택하세요" 
                       />                      
                     </td>                                        
                     <td>
                       <VSelect
-                        title="물류 선택"
+                        title="한전온 선택"
                         v-model="vselected"
-                        :options="options"
-                        placeholder="물류 선택 선택하세요" 
+                        :options="options7"
+                        placeholder="한전온 선택 선택하세요" 
                       />                      
                     </td>
                 </tr>
@@ -129,18 +129,45 @@
 </template>
 <script setup>
 import { ref, reactive } from 'vue'
-const tableData = reactive([])
-const options = [
-  {
-    title: '장로신학대학',
-    code: 'item1',
-  },
-  {
-    title: '장로신학대학2',
-    code: 'item2',
-  }
-]
-const vselected = ref('장로신학대학')
+import tableData1 from "./tempData/tableData1";
+const tableData = reactive(tableData1)
+const options = tableData1[0].distribution.map(item => ({
+  title: item.title,
+  code: item.code,
+  isSelected: item.isSelected
+}))
+const options2 = tableData1[0].waveForce.map(item => ({
+  title: item.title,
+  code: item.code,
+  isSelected: item.isSelected
+}))
+const options3 = tableData1[0].moneyOn.map(item => ({
+  title: item.title,
+  code: item.code,
+  isSelected: item.isSelected
+}))
+const options4 = tableData1[0].sampler.map(item => ({
+  title: item.title,
+  code: item.code,
+  isSelected: item.isSelected
+}))
+const options5 = tableData1[0].Payco.map(item => ({
+  title: item.title,
+  code: item.code,
+  isSelected: item.isSelected
+}))
+const options6 = tableData1[0].SecretOrder.map(item => ({
+  title: item.title,
+  code: item.code,
+  isSelected: item.isSelected
+}))
+const options7 = tableData1[0].KepcoOn.map(item => ({
+  title: item.title,
+  code: item.code,
+  isSelected: item.isSelected
+}))
+
+const vselected = ref('')
 const selected = ref('')
 const changeSelected = (option) => {  
   selected.value = option.title
