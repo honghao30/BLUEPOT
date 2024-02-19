@@ -128,7 +128,8 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
+const tableData = reactive([])
 const options = [
   {
     title: '장로신학대학',
