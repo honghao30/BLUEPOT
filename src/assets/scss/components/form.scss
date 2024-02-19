@@ -94,3 +94,45 @@ $textareaHeight: 100px;
     top:0;
   }
 }
+// switch
+.switch {
+  display:inline-flex;
+  align-items:center;
+  .switch-title {
+    display:inline-block;
+    margin-right: 10px;
+  }
+  &__core {
+    display: inline-block;
+    width:20px;
+    height: 8px;
+    border-radius: 5px;
+    position:relative;
+    background-color:#CCCCCC;
+    cursor:pointer;
+    &:after {
+      content:'';
+      display:inline-block;
+      width:12px;
+      height: 12px;
+      border-radius: 100%;
+      background-color:#939393;
+      position:absolute;
+      left:0px;
+      top:-2px;
+      transition:all 200ms linear;
+    }
+  }
+  input[type="checkbox"] {
+    @include hiddens;
+    &:checked {
+      +.switch__core {
+        background-color:#E1F0FF;
+        &:after {
+          left:8px;
+          background-color:#7FA7CA;
+        }
+      }
+    }
+  }
+}

@@ -373,3 +373,33 @@ header {
     }       
   }
 }
+// 항목 선택 스위치
+.modal-search-item {
+  .input {
+    height: 26px;
+    width: 180px;
+    input {
+      height: 100%;
+    }
+  }
+}
+.modal-item-list {  
+  height: 221px;
+  padding: 14px 0;
+  overflow-y: auto;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    @include fontoption(12px,$infoColor, 300, 12px);
+    &+li {
+      margin-top:8px;
+    }
+  }
+}
+.item-show-hide-button {
+  display: flex;
+  justify-content: space-between;
+  @include fontoption(12px,$primary, 300, 12px);
+}

@@ -4,8 +4,12 @@
   >
     <div
     class="modal__wrap"
+      :class="{ 'no-dim': !dim }"
+      :style="style"
     >
-      <div class="overlay-mask" @click="$emit('closeModal')"></div>
+      <div class="overlay-mask"        
+        @click="$emit('closeModal')"
+      ></div>
       <div
           class="modal__content"
           :style="{ width: modalSize + 'px' }"
@@ -40,6 +44,14 @@ const props = defineProps({
   modalSize: {
     type: Number,
     default: ''
+  },
+  dim: {
+    type: Boolean,
+    default: true
+  },
+  style: {
+    type: Object,
+    default: () => ({})
   }
 }) 
 

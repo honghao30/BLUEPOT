@@ -88,7 +88,7 @@
             </template>    
             <template #tbody>
                 <tr 
-                    v-for="data in 5"
+                    v-for="data in 1"
                     :key="data"                
                 >
                     <td class="text-l">
@@ -96,7 +96,69 @@
                         <input type="checkbox" name="checkbox" id="radio1" />
                         <label for="radio1"><span class="irtext">설정</span></label>
                       </span>                      
-                      남서울대학교</td>
+                      남서울대학교
+                      <ModalView
+                        v-if="isModalViewed" @closeModal="isModalViewed = false"            
+                        :dim="false"
+                        modalSize="244"
+                        :style="{ position: 'absolute', top: '36px', left: '0' }"
+                      >
+                        <template #content>
+                          <div class="modal-search-item">
+                            <MyInput >
+                                <template #input>
+                                    <InputEl                                        
+                                        v-model="keyword"
+                                        required                                                
+                                        placeholder="검색어를 입력하세요"                                                                
+                                    />                
+                                </template>         
+                            </MyInput>  
+                          </div>
+                          <div class="modal-item-list">
+                              <ul>
+                                <li>
+                                  <div class="switch" role="switch">
+                                    <input type="checkbox" id="switch1" v-model="switchs">
+                                    <label class="switch__core" for="switch1"></label>
+                                  </div>
+                                  항목1
+                                </li>
+                                <li>
+                                  <div class="switch" role="switch">
+                                    <input type="checkbox" id="switch2" v-model="switchs">
+                                    <label class="switch__core" for="switch2"></label>
+                                  </div>
+                                  항목2
+                                </li>
+                                <li>
+                                  <div class="switch" role="switch">
+                                    <input type="checkbox" id="switch3" v-model="switchs">
+                                    <label class="switch__core" for="switch3"></label>
+                                  </div>
+                                  항목3
+                                </li>                                                                
+                              </ul>
+                          </div>                          
+                        </template> 
+                        <template #footer>
+                          <div class="item-show-hide-button">
+                            <MyBtn                            
+                                buttonName="모두숨기기" 
+                                color="btn default-text"                    
+                                size="text-size"                   
+                            >  
+                            </MyBtn>
+                            <MyBtn                            
+                                buttonName="모두보이기"                  
+                                color="btn default-text"                    
+                                size="text-size"                   
+                            >  
+                            </MyBtn>                                                     
+                          </div>
+                        </template>       
+                      </ModalView>                        
+                    </td>
                     <td>55,000,000</td>
                     <td>55,000,000</td>
                     <td>55,000,000</td>
@@ -111,14 +173,14 @@
                     <td>55,000,000</td>
                 </tr>
             </template>              
-          </MyTable>   
-                 
+          </MyTable> 
       </div>
     </div>
   </div>
 </template>
 <script setup>
 import { ref, defineProps, defineEmits, onBeforeMount, onUnmounted } from 'vue'
+const switchs = ref('')
 const options = [
   {
     title: '장로신학대학',
@@ -133,5 +195,11 @@ const vselected = ref('장로신학대학')
 const selected = ref('')
 const changeSelected = (option) => {  
   selected.value = option.title
+}
+
+const isModalViewed = ref(false)
+
+const modalShow = () => {  
+  isModalViewed.value = false
 }
 </script>
