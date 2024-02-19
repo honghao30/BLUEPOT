@@ -3,7 +3,7 @@ import NotFound from '@/views/errors/404.vue'
 // 파일 링크
 import Login from './menus/Login'
 // import Store from './menus/Store'
-import setTlement from './menus/setTlement'
+import Settlement from './menus/Settlement'
 // import PubGuides from './menus/pubGuide'
 
 // 라우터 
@@ -14,7 +14,7 @@ const routes = [
     },   
     ...Login,
     // ...Store,
-    ...setTlement  
+    ...Settlement  
 ]
 // 라우터 생성
 const router = createRouter({
