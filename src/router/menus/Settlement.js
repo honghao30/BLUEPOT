@@ -9,5 +9,10 @@ export default [
         path: "/WriteStatement",
         name: "WriteStatement",
         component: () => import('@/views/Settlement/WriteStatement.vue')
+    },
+    {
+        path: "/SearchStatement",
+        name: "SearchStatement",
+        component: () => import('@/views/Settlement/SearchStatement.vue')
     }    
   ]

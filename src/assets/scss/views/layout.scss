@@ -345,3 +345,24 @@ header {
     padding:0;
   }
 }
+
+// 리스트 조회
+.search__list-top {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  form {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .select__wrap {    
+    min-width: 130px;
+    &:nth-child(3) {      
+      min-width: 230px;
+      select {
+        background: url(/src/assets/images/icon/icon-arrow.svg) no-repeat 96% center;
+      }
+    }       
+  }
+}
