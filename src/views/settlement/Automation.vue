@@ -65,7 +65,7 @@
             </template>
             <template #thead>
                 <tr>
-                    <th scope="col" rowspan="2">매방명</th>
+                    <th scope="col" rowspan="2">매장명</th>
                     <th scope="col" colspan="2">물류매출</th>
                     <th scope="col">웰포스</th>
                     <th scope="col" colspan="4">머니온</th>
@@ -88,89 +88,24 @@
             </template>    
             <template #tbody>
                 <tr 
-                    v-for="data in 1"
-                    :key="data"                
+                    v-for="data in tableData"
+                    :key="data.index"                
                 >
-                    <td class="text-l">
-                      <span class="checkbox">
-                        <input type="checkbox" name="checkbox" id="radio1" />
-                        <label for="radio1"><span class="irtext">설정</span></label>
-                      </span>                      
-                      남서울대학교
-                      <ModalView
-                        v-if="isModalViewed" @closeModal="isModalViewed = false"            
-                        :dim="false"
-                        modalSize="244"
-                        :style="{ position: 'absolute', top: '36px', left: '0' }"
-                      >
-                        <template #content>
-                          <div class="modal-search-item">
-                            <MyInput >
-                                <template #input>
-                                    <InputEl                                        
-                                        v-model="keyword"
-                                        required                                                
-                                        placeholder="검색어를 입력하세요"                                                                
-                                    />                
-                                </template>         
-                            </MyInput>  
-                          </div>
-                          <div class="modal-item-list">
-                              <ul>
-                                <li>
-                                  <div class="switch" role="switch">
-                                    <input type="checkbox" id="switch1" v-model="switchs">
-                                    <label class="switch__core" for="switch1"></label>
-                                  </div>
-                                  항목1
-                                </li>
-                                <li>
-                                  <div class="switch" role="switch">
-                                    <input type="checkbox" id="switch2" v-model="switchs">
-                                    <label class="switch__core" for="switch2"></label>
-                                  </div>
-                                  항목2
-                                </li>
-                                <li>
-                                  <div class="switch" role="switch">
-                                    <input type="checkbox" id="switch3" v-model="switchs">
-                                    <label class="switch__core" for="switch3"></label>
-                                  </div>
-                                  항목3
-                                </li>                                                                
-                              </ul>
-                          </div>                          
-                        </template> 
-                        <template #footer>
-                          <div class="item-show-hide-button">
-                            <MyBtn                            
-                                buttonName="모두숨기기" 
-                                color="btn default-text"                    
-                                size="text-size"                   
-                            >  
-                            </MyBtn>
-                            <MyBtn                            
-                                buttonName="모두보이기"                  
-                                color="btn default-text"                    
-                                size="text-size"                   
-                            >  
-                            </MyBtn>                                                     
-                          </div>
-                        </template>       
-                      </ModalView>                        
+                    <td>                  
+                      {{ data.storeName }}                       
                     </td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>                    
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
+                    <td>{{ data.distribution.taxation }} </td>
+                    <td>{{ data.distribution.taxFree }}</td>
+                    <td>{{ data.wellPos }}</td>
+                    <td>{{ data.monyOn.cash }}</td>
+                    <td>{{ data.monyOn.card }}</td>
+                    <td>{{ data.monyOn.cardBackUp }}</td>
+                    <td>{{ data.monyOn.cash2 }}</td>
+                    <td>{{ data.payCo.cashBackUp }}</td>
+                    <td>{{ data.payCo.totalOrder }}</td>                    
+                    <td>{{ data.payCo.cashed }}</td>
+                    <td>{{ data.secretOrde }}</td>
+                    <td>{{ data.payCoCoupon }}</td>
                 </tr>
             </template>              
           </MyTable> 
@@ -179,27 +114,8 @@
   </div>
 </template>
 <script setup>
-import { ref, defineProps, defineEmits, onBeforeMount, onUnmounted } from 'vue'
-const switchs = ref('')
-const options = [
-  {
-    title: '장로신학대학',
-    code: 'item1',
-  },
-  {
-    title: '장로신학대학2',
-    code: 'item2',
-  }
-]
-const vselected = ref('장로신학대학')
-const selected = ref('')
-const changeSelected = (option) => {  
-  selected.value = option.title
-}
+import { ref, reactive } from 'vue'
+import tableData2 from "./tempData/tableData2";
+const tableData = reactive(tableData2)
 
-const isModalViewed = ref(false)
-
-const modalShow = () => {  
-  isModalViewed.value = false
-}
 </script>
