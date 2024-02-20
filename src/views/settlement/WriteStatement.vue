@@ -24,7 +24,7 @@
                           <InputEl                                        
                               v-model="keyword"
                               required                                                
-                              placeholder="검색어를 입력하세요"                                                                
+                              placeholder="매장명"                                                                
                           />                
                       </template>         
                   </MyInput>                     
@@ -43,14 +43,14 @@
                 <VSelect                  
                   v-model="vselected"
                   :options="options"
-                  placeholder="필드명 선택하세요" 
+                  placeholder="필드명" 
                 />                    
                 <MyInput >
                     <template #input>
                         <InputEl                                        
                             v-model="keyword"
                             required                                                
-                            placeholder="금액 입력하세요"                                                                
+                            placeholder="금액"                                                                
                         />                
                     </template>         
                 </MyInput>                     
@@ -123,18 +123,16 @@
                 </tr>                
             </template>    
             <template #tbody>
-                <tr 
-                    v-for="data in 5"
-                    :key="data"                
-                  >
+                <tr v-for="(data, index) in tableData" :key="index">
                     <td class="text-l">
                       <span class="checkbox">
-                        <input type="checkbox" name="checkbox" id="radio1" />
-                        <label for="radio1"><span class="irtext">설정</span></label>
+                        <input type="checkbox" name="checkbox" :id="`check${data.No}`" @change="toggleModal(index)" />
+                        <label :for="`check${data.No}`"><span class="irtext">설정</span></label>
                       </span>                        
-                      남서울대학교
+                      {{ data.storeName }}
                       <ModalView
-                        v-if="isModalViewed" @closeModal="isModalViewed = false"            
+                        v-if="isModalViewed[index]"
+                        @closeModal="closeModal(index)"                             
                         :dim="false"
                         modalSize="244"
                         :style="{ position: 'absolute', top: '36px', left: '0' }"
@@ -153,27 +151,13 @@
                           </div>
                           <div class="modal-item-list">
                               <ul>
-                                <li>
+                                <li v-for="(item, index) in tableData[index].ProductSales2" :key="index">
                                   <div class="switch" role="switch">
-                                    <input type="checkbox" id="switch1" v-model="switchs">
-                                    <label class="switch__core" for="switch1"></label>
+                                    <input type="checkbox" :id="`switch${index}`" v-model="switchs[index]">
+                                    <label class="switch__core" :for="`switch${index}`"></label>
                                   </div>
-                                  항목1
-                                </li>
-                                <li>
-                                  <div class="switch" role="switch">
-                                    <input type="checkbox" id="switch2" v-model="switchs">
-                                    <label class="switch__core" for="switch2"></label>
-                                  </div>
-                                  항목2
-                                </li>
-                                <li>
-                                  <div class="switch" role="switch">
-                                    <input type="checkbox" id="switch3" v-model="switchs">
-                                    <label class="switch__core" for="switch3"></label>
-                                  </div>
-                                  항목3
-                                </li>                                                                
+                                  {{ index }}
+                                </li>                                                                                              
                               </ul>
                           </div>                          
                         </template> 
@@ -182,28 +166,30 @@
                             <MyBtn                            
                                 buttonName="모두숨기기" 
                                 color="btn default-text"                    
-                                size="text-size"                   
+                                size="text-size"     
+                                @click="hideAll"              
                             >  
                             </MyBtn>
                             <MyBtn                            
                                 buttonName="모두보이기"                  
                                 color="btn default-text"                    
-                                size="text-size"                   
+                                size="text-size"   
+                                @click="showAll"                
                             >  
                             </MyBtn>                                                     
                           </div>
                         </template>       
                       </ModalView>                       
                     </td>                    
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td> 
+                    <td>{{ data.ProductSales.cash }}</td>
+                    <td>{{ data.ProductSales.card }}</td>
+                    <td>{{ data.ProductSales2.rent }}</td>
+                    <td>{{ data.ProductSales2.maintenanceCost }}</td>
+                    <td>{{ data.ProductSales2.electricityBill }}</td>
+                    <td>{{ data.ProductSales2.cityGas }}</td>
+                    <td>{{ data.ProductSales2.internet }}</td>
+                    <td>{{ data.ProductSales2.order }}</td>
+                    <td>{{ data.ProductRange }}</td> 
                 </tr>
             </template>               
           </MyTable>          
@@ -212,7 +198,9 @@
   </div>
 </template>
 <script setup>
-import { ref, defineProps, defineEmits, onBeforeMount, onUnmounted } from 'vue'
+import { ref, reactive, defineProps, defineEmits, onBeforeMount, onUnmounted } from 'vue'
+import tableData3 from "./tempData/tableData3";
+const tableData = reactive(tableData3)
 const keyword = ref('')
 const options = [
   {
@@ -235,11 +223,20 @@ const search = () => {
 const insertField = () => {
   console.log('등록')
 }
-const switchs = ref('')
+const switchs = ref({})
 
-const isModalViewed = ref(false)
+const isModalViewed = ref(Array(tableData.length).fill(false));
 
-const modalShow = () => {  
-  isModalViewed.value = false
+const toggleModal = (index) => {
+  isModalViewed.value[index] = !isModalViewed.value[index];
+};
+const closeModal = (index) => {
+  isModalViewed.value[index] = false;
+}
+const hideAll = () => {
+  console.log('전체 숨기기')
+}
+const showAll = () => {
+  console.log('전체 보이기')  
 }
 </script>

@@ -1,4 +1,4 @@
-const tableData4 = [
+const tableData2 = [
   {
     id: 1,
     No: 100,
@@ -46,8 +46,7 @@ const tableData4 = [
     secretOrde: '1,000,000',
     payCoCoupon: '1,000,000'
 
-  }  
-  
+  } 
 ]
 
-export default tableData4
+export default tableData2

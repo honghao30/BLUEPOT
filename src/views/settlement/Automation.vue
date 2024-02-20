@@ -115,7 +115,7 @@
 </template>
 <script setup>
 import { ref, reactive } from 'vue'
-import tableData2 from "./tempData/tableData2";
+import tableData2 from "./tempData/tableData3";
 const tableData = reactive(tableData2)
 
 </script>
