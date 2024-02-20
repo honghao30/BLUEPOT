@@ -13,23 +13,20 @@
       <div class="data-list">
           <div class="search__list-top">
               <form @submit.prevent="search">
-                <VSelect
-                    title="물류 선택"
+                <VSelect                    
                     v-model="vselected"
-                    :options="options"
-                    placeholder="물류 선택 선택하세요" 
+                    :options="options1"
+                    placeholder="년도 선택하세요" 
                   />
-                  <VSelect
-                    title="물류 선택"
+                  <VSelect                    
                     v-model="vselected"
-                    :options="options"
-                    placeholder="물류 선택 선택하세요" 
+                    :options="options2"
+                    placeholder="월 선택하세요" 
                   />
-                  <VSelect
-                    title="물류 선택"
+                  <VSelect                    
                     v-model="vselected"
-                    :options="options"
-                    placeholder="물류 선택 선택하세요" 
+                    :options="options3"
+                    placeholder="상호명 선택하세요" 
                   />                                                                       
                 <MyBtn         
                     type="submit"                  
@@ -69,17 +66,17 @@
             </template>    
             <template #tbody>
                 <tr 
-                    v-for="data in 5"
-                    :key="data"                
+                    v-for="data in tableData"
+                    :key="data.index"                
                   >
-                    <td>186</td>                    
-                    <td>2023</td>
-                    <td>12</td>
-                    <td>BLUE POT(블루포트)2023년 12월 정산서</td>
-                    <td>나주 영산포</td>
-                    <td>정해인</td>
-                    <td>55,000,000</td>
-                    <td>55,000,000</td>
+                    <td>{{ data.No }}</td>                    
+                    <td>{{ data.year }}</td>
+                    <td>{{ data.month }}</td>
+                    <td class="text-l">{{ data.subject }}</td>
+                    <td>{{ data.storeName }}</td>
+                    <td>{{ data.ownerName }}</td>
+                    <td>{{ data.settlementFee }}</td>
+                    <td>{{ data.data }}</td>
                 </tr>
             </template>               
           </MyTable>          
@@ -88,15 +85,38 @@
   </div>
 </template>
 <script setup>
-import { ref, defineProps, defineEmits, onBeforeMount, onUnmounted } from 'vue'
+import { ref, reactive } from 'vue'
+import tableData4 from "./tempData/tableData4";
+const tableData = reactive(tableData4)
+
 const keyword = ref('')
-const options = [
+const options1 = [
   {
-    title: '필드명',
+    title: '2012',
     code: 'item1',
   },
   {
-    title: '필드명',
+    title: '2013',
+    code: 'item2',
+  }
+]
+const options2 = [
+  {
+    title: '1월',
+    code: 'item1',
+  },
+  {
+    title: '2월',
+    code: 'item2',
+  }
+]
+const options3 = [
+  {
+    title: '정해인 주식회사',
+    code: 'item1',
+  },
+  {
+    title: '정해인 주식회사',
     code: 'item2',
   }
 ]

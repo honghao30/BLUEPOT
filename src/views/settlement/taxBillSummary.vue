@@ -14,17 +14,15 @@
           <div class="data-input__section--box two-column">
             <div class="search__list-top">
                 <form @submit.prevent="search">
-                  <VSelect
-                      title="물류 선택"
+                  <VSelect                      
                       v-model="vselected"
-                      :options="options"
-                      placeholder="물류 선택 선택하세요" 
+                      :options="options1"
+                      placeholder="년도 선택하세요" 
                     />
-                    <VSelect
-                      title="물류 선택"
+                    <VSelect                      
                       v-model="vselected"
-                      :options="options"
-                      placeholder="물류 선택 선택하세요" 
+                      :options="options2"
+                      placeholder="월 선택하세요" 
                     />                                                                      
                   <MyBtn         
                       type="submit"                  
@@ -80,18 +78,25 @@
             </template>    
             <template #tbody>
                 <tr 
-                  v-for="data in 5"
-                  :key="data"                
+                  v-for="data in tableData"
+                  :key="data.index"                
                 >
-                    <td>5</td>                    
-                    <td>2022</td>
-                    <td>01</td>
-                    <td>190</td>
-                    <td>55,000,000</td>
-                    <td>190</td>
-                    <td>55,000,000</td>
+                    <td>{{ data.No }}</td>                    
+                    <td>{{ data.year }}</td>
+                    <td>{{ data.month }}</td>
+                    <td>{{ data.Deposit.store }}</td>
+                    <td>{{ data.Deposit.subtotal }}</td>
+                    <td>{{ data.tax.store }}</td>
+                    <td>{{ data.tax.subtotal }}</td>
                     <td>
-
+                      <MyBtn                            
+                        buttonName="조회"
+                        type="text"
+                        color="btn primary"                    
+                        size="small"   
+                        @click="readSearch(data)"                
+                    >  
+                    </MyBtn>
                     </td>
                 </tr>
             </template>               
@@ -101,15 +106,28 @@
   </div>
 </template>
 <script setup>
-import { ref, defineProps, defineEmits, onBeforeMount, onUnmounted } from 'vue'
+import { ref, reactive } from 'vue'
+import tableData5 from "./tempData/tableData5";
+const tableData = reactive(tableData5)
+
 const keyword = ref('')
-const options = [
+const options1 = [
   {
-    title: '필드명',
+    title: '2012',
     code: 'item1',
   },
   {
-    title: '필드명',
+    title: '2013',
+    code: 'item2',
+  }
+]
+const options2 = [
+  {
+    title: '1월',
+    code: 'item1',
+  },
+  {
+    title: '2월',
     code: 'item2',
   }
 ]
@@ -121,7 +139,7 @@ const changeSelected = (option) => {
 const search = () => {
   console.log('검색')
 }
-const insertField = () => {
-  console.log('등록')
+const readSearch = (option) => {
+  console.log(option)
 }
 </script>
