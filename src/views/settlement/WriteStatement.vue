@@ -151,12 +151,12 @@
                           </div>
                           <div class="modal-item-list">
                               <ul>
-                                <li v-for="(item, index) in tableData[index].ProductSales2" :key="index">
+                                <li v-for="(item, i) in data.thItem" :key="i">
                                   <div class="switch" role="switch">
-                                    <input type="checkbox" :id="`switch${index}`" v-model="switchs[index]">
-                                    <label class="switch__core" :for="`switch${index}`"></label>
+                                    <input type="checkbox" :id="`switch${i}`" v-model="switchs[i]">
+                                    <label class="switch__core" :for="`switch${i}`"></label>
                                   </div>
-                                  {{ index }}
+                                  {{ i }}
                                 </li>                                                                                              
                               </ul>
                           </div>                          
@@ -174,7 +174,7 @@
                                 buttonName="모두보이기"                  
                                 color="btn default-text"                    
                                 size="text-size"   
-                                @click="showAll"                
+                                @click="showAll(index, data)"                
                             >  
                             </MyBtn>                                                     
                           </div>
@@ -223,7 +223,7 @@ const search = () => {
 const insertField = () => {
   console.log('등록')
 }
-const switchs = ref({})
+const switchs = reactive([])
 
 const isModalViewed = ref(Array(tableData.length).fill(false));
 
@@ -234,9 +234,10 @@ const closeModal = (index) => {
   isModalViewed.value[index] = false;
 }
 const hideAll = () => {
-  console.log('전체 숨기기')
+
 }
-const showAll = () => {
-  console.log('전체 보이기')  
+
+const showAll = (item, i) => {
+  console.log('dd' ,item)
 }
 </script>

@@ -15,6 +15,14 @@ const tableData3 = [
       internet: '1,000,000',
       order: '1,000,000'
     },
+    thItem: {
+      '임대료': true,
+      '관리비': true,
+      '전기요금': true,
+      '도시가스': true,
+      '인터넷': true,
+      '기타': true
+    },    
     ProductRange: '1,000,000'
   },
   {
@@ -33,6 +41,14 @@ const tableData3 = [
       internet: '1,000,000',
       order: '1,000,000'
     },
+    thItem: {
+      '임대료': true,
+      '관리비': true,
+      '전기요금': true,
+      '도시가스': true,
+      '인터넷': true,
+      '기타': true
+    },      
     ProductRange: '1,000,000'
   }  
 ]
