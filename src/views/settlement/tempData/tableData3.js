@@ -16,12 +16,12 @@ const tableData3 = [
       order: '1,000,000'
     },
     thItem: {
-      '임대료': true,
-      '관리비': true,
-      '전기요금': true,
-      '도시가스': true,
-      '인터넷': true,
-      '기타': true
+      rent: '임대료',
+      maintenanceCost: '관리비',
+      electricityBill: '전기요금',
+      cityGas: '관리비',
+      internet: '인터넷',
+      order: '기타'
     },    
     ProductRange: '1,000,000'
   },
@@ -42,12 +42,12 @@ const tableData3 = [
       order: '1,000,000'
     },
     thItem: {
-      '임대료': true,
-      '관리비': true,
-      '전기요금': true,
-      '도시가스': true,
-      '인터넷': true,
-      '기타': true
+      rent: '임대료',
+      maintenanceCost: '관리비',
+      electricityBill: '전기요금',
+      cityGas: '관리비',
+      internet: '인터넷',
+      order: '기타'
     },      
     ProductRange: '1,000,000'
   }  

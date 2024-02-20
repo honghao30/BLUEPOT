@@ -144,7 +144,7 @@
                                     <InputEl                                        
                                         v-model="keyword"
                                         required                                                
-                                        placeholder="검색어를 입력하세요"                                                                
+                                        placeholder="열 검색"                                                                
                                     />                
                                 </template>         
                             </MyInput>  
@@ -156,7 +156,7 @@
                                     <input type="checkbox" :id="`switch${i}`" v-model="switchs[i]">
                                     <label class="switch__core" :for="`switch${i}`"></label>
                                   </div>
-                                  {{ i }}
+                                  {{ item }}
                                 </li>                                                                                              
                               </ul>
                           </div>                          
@@ -234,10 +234,14 @@ const closeModal = (index) => {
   isModalViewed.value[index] = false;
 }
 const hideAll = () => {
-
+  for (let i = 0; i < tableData.length; i++) {
+    isModalViewed[i] = false;
+  }
 }
 
 const showAll = (item, i) => {
-  console.log('dd' ,item)
+  for (let i = 0; i < switchs.length; i++) {
+    switchs[i] = true;
+  }
 }
 </script>
