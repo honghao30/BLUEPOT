@@ -151,9 +151,9 @@
                           </div>
                           <div class="modal-item-list">
                               <ul>
-                                <li v-for="(item, i) in data.thItem" :key="i">
+                                <li v-for="(item, i) in thItems" :key="i">
                                   <div class="switch" role="switch">
-                                    <input type="checkbox" :id="`switch${i}`" v-model="switchs[i]">
+                                    <input type="checkbox" :id="`switch${i}`" v-model="checked[i]" @change="ChangeCheckbox(i)">
                                     <label class="switch__core" :for="`switch${i}`"></label>
                                   </div>
                                   {{ item }}
@@ -198,7 +198,7 @@
   </div>
 </template>
 <script setup>
-import { ref, reactive, defineProps, defineEmits, onBeforeMount, onUnmounted } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import tableData3 from "./tempData/tableData3";
 const tableData = reactive(tableData3)
 const keyword = ref('')
@@ -223,8 +223,6 @@ const search = () => {
 const insertField = () => {
   console.log('등록')
 }
-const switchs = reactive([])
-
 const isModalViewed = ref(Array(tableData.length).fill(false));
 
 const toggleModal = (index) => {
@@ -233,15 +231,24 @@ const toggleModal = (index) => {
 const closeModal = (index) => {
   isModalViewed.value[index] = false;
 }
-const hideAll = () => {
-  for (let i = 0; i < tableData.length; i++) {
-    isModalViewed[i] = false;
-  }
-}
 
-const showAll = (item, i) => {
-  for (let i = 0; i < switchs.length; i++) {
-    switchs[i] = true;
-  }
+const thItems = ref(['임대료','관리비', '전기요금', '관리비','인터넷', '기타']);
+const checked = ref(thItems.value.map(() => true));
+
+const ChangeCheckbox = (index) => {
+  console.log(`체크박스의 상태: ${checked.value[index]}`);
 }
+const hideAll = () => {
+  for(let i = 0; i < checked.value.length; i++) {
+    checked.value[i] = false; 
+  }
+  console.log(checked.value);
+};
+
+const showAll = () => {  
+  for(let i = 0; i < checked.value.length; i++) {
+    checked.value[i] = true; 
+  }
+  console.log(checked.value);
+};
 </script>
