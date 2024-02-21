@@ -7,7 +7,8 @@
       :class="{ 'no-dim': !dim }"
       :style="style"
     >
-      <div class="overlay-mask"        
+      <div class="overlay-mask"   
+        v-if="dim"     
         @click="$emit('closeModal')"
       ></div>
       <div

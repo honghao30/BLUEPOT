@@ -236,7 +236,7 @@ const thItems = ref(['임대료','관리비', '전기요금', '관리비','인�
 const checked = ref(thItems.value.map(() => true));
 
 const ChangeCheckbox = (index) => {
-  console.log(`체크박스의 상태: ${checked.value[index]}`);
+  console.log(`체크박스의 상태: ${index}, ${checked.value[index]}`);
 }
 const hideAll = () => {
   for(let i = 0; i < checked.value.length; i++) {
