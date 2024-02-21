@@ -157,9 +157,39 @@
 
             </td>
           </tr>
-        
+          <tr>
+            <th>Input</th>
+            <td>
+                - Input 컴포넌트 MyInput <br>
+                &lt;MyInput&gt; <br>    
+                      &lt;template #input&gt;
+                           &lt;InputEl        <br>                                     
+                              v-model="keyword" <br>    
+                              required             <br>                                        
+                              placeholder="매장명"      <br>                                                               
+                          /&gt;         <br>           
+                      &lt;/template&gt;    <br>          
+                  &lt;/MyInput&gt;             
+
+            </td>
+          </tr>
+          <tr>
+            <th>Select</th>
+            <td>
+                - Select 컴포넌트 VSelect <br>
+                &lt;VSelect <br>    
+                    title="시크릿오더 선택" <br>    
+                    v-model="vselected" <br>    
+                    :condition="!options6" <br>    
+                    :options="options6" <br>    
+                    placeholder="시크릿오더 선택 선택하세요"  <br>    
+                /&gt;               
+
+            </td>
+          </tr>               
         </tbody>
-      </table>            
+      </table>
+      <p>그외 컴포넌트는 props구조를 통해 확인 바람.</p>           
   </div>
   </div>
 </template>
