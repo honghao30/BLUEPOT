@@ -111,17 +111,7 @@ $radius: 4px;
     }
   }      
 }
-.btn-primary-line {
-  @include btntype(16px,$pointColor,#fff,$pointColor, 6px,  #fff, #2855A7, #2855A7);               
-  &:disabled {
-    color:#ccc;
-    border-color:#ccc;
-    &:hover, &:active {
-      color:#ccc;
-      border-color:#ccc;
-    }
-  }            
-}
+
 .secondary {
   @include btntype(16px, #6a6969, #6a6969,#fff, 6px, #6a6969,#fff, #6a6969);
   &:disabled {

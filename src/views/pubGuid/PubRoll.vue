@@ -1,25 +1,6 @@
 <template>
   <div>
-    <ModalView
-      v-if="isModalViewed" 
-      v-model="isAuth" 
-      @closeModal="isAuth = false"
-      modalTitle="비밀번호 확인"
-      modalSize="500"
-    >
-      <template #content>
-        <div class="check-pwd">
-          <input class="check__text" v-model="checkPwd"  @keyup.enter="clickPwd" placeholder="비번 입력 후 입장 가능합니다." />
-          <Button
-            types="btn-primary-line"
-            size="medium"
-            buttonName="확인"
-            @click="clickPwd"
-          />          
-         </div>
-      </template>       
-    </ModalView> 
-    <div class="content__wrap" v-if="isSuccess">
+    <div class="content__wrap">
     <Title 
         :level="2" 
         pageTitle="규칙 & 설계 가이드"
@@ -30,16 +11,14 @@
     />    
     <div class="wsg-guide__wrap--gray-box">
       <ul class="ia-note-desc">
-        <li>- 본 가이드는 개발팀 및 Vue의 폴더 구조에 따르며 scss의 경로 및 마크업에 해당하는 부분에 대해서 가이드 합니다.</li>
-        <li>- element-ui를 사용한 ui는 본 가이드가 적용되지 않습니다.</li>
+        <li>- 본 가이드는 폴더 구조및scss의 경로 및 마크업에 해당하는 부분에 대해서 가이드 합니다.</li>
       </ul>
     </div>
     <Title 
         :level="3" 
         pageTitle="폴더 구조"
     />   
-    <ul class="ia-note-desc">
-      <li>2023 프로젝트 고도화_개발가이드 v1.0_230412 문서의 구조를 따릅니다.</li>
+    <ul class="ia-note-desc">      
       <li>퍼블리싱 관련 파일 위치 안내 입니다.</li>
     </ul>
     <Title 
@@ -49,8 +28,7 @@
     <ul class="ia-note-desc">
       <li>컴포넌트 기반의 웹 개발론에 최적화된 BEM 방식을 사용합니다.</li>
       <li>이름은 아래 표기법 정의에 따라 각 영문 대/소문자, 숫자, 하이픈(-)을 사용하여 작성합니다.</li>
-      <li>네이밍의 조합은 형태-의미-순서-상태 순으로 사용합니다. </li>
-      <li>언더스코어는 파일, 폴더, 이미지 등에만 사용합니다(background_asset_01.png)</li>
+      <li>네이밍의 조합은 형태-의미-순서-상태 순으로 사용합니다. </li>      
     </ul>
     <Title 
         :level="3" 
@@ -88,11 +66,100 @@
           <tr>
             <td></td>
             <td>views</td>
-            <td>각 메뉴별 scss</td>
+            <td>layout scss</td>
             <td></td>
           </tr>
         </tbody>
       </table>
+    <Title 
+      :level="3" 
+      pageTitle="칼라코드"
+    />
+    <table class="wsg-table-body">
+        <caption>칼라</caption>
+        <colgroup>
+          <col style="width:30%">
+          <col style="*">          
+          <col>
+        </colgroup>
+        <tbody>
+          <tr>
+            <th>$defaultColor:</th>
+            <td> #000000</td>
+          </tr>
+          <tr>
+            <th>$grayColor:</th>
+            <td>#939393</td>
+          </tr>
+          <tr>
+            <th>$blackColor:</th>
+            <td> #242021</td>
+          </tr>
+          <tr>
+            <th>$primary:</th>
+            <td>#7FA7CA</td>
+          </tr>
+          <tr>
+            <th>$secondary:</th>
+            <td>#E1F0FF</td>
+          </tr>
+          <tr>
+            <th>$successColor: </th>
+            <td>#41D0C8</td>
+          </tr>
+          <tr>
+            <th>$darkSuccessColor: </th>
+            <td>#23B4D4</td>
+          </tr>
+          <tr>
+            <th>$infoColor: </th>
+            <td>#5F5F5F</td>
+          </tr>
+          <tr>
+            <th>$dangerColor: </th>
+            <td>#000</td>
+          </tr>
+          <tr>
+            <th>$tableBorderColor: </th>
+            <td>#D9D9D9</td>
+          </tr>
+          <tr>
+            <th>$tertiaryColor:</th>
+            <td>#D1D423</td>
+          </tr>
+        </tbody>
+      </table>   
+      <Title 
+      :level="3" 
+      pageTitle="컴포넌트 가이드"
+      noTicText="모든 컴포넌트는 plugin등록을 해서 별도의 import없이 사용 가능"
+    />
+    <table class="wsg-table-body">
+        <caption>컴포넌트</caption>
+        <colgroup>
+          <col style="width:30%">
+          <col style="*">          
+          <col>
+        </colgroup>
+        <tbody>
+          <tr>
+            <th>버튼</th>
+            <td>
+                - 버튼 컴포넌트 MyBtn <br>
+                &lt;MyBtn                            
+                    buttonName="버튼명 전달"  <br>                
+                    iconName="icon-uploadicon 아이콘 사용시 아이콘명"<br>
+                    iconDirection="icon-left 아이콘 위치"<br>
+                    color="btn tertiary 칼라 디자인"         <br>           
+                    size="medium 크기"<br>
+                &gt;  
+                &lt;/MyBtn&gt;              
+
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>            
   </div>
   </div>
 </template>
@@ -101,23 +168,10 @@
   import { ref } from 'vue'
   import guideKey from '@/utils/guideKey'  
   import { useRoute, useRouter } from 'vue-router'
-
-  const isAuth = ref(true)
-  const checkPwd = ref('')
-  const isSuccess = ref(false)
-
+  
   const route = useRoute()
   const router = useRouter()
-  const isModalViewed = ref(true)
 
-  const clickPwd = () => {
-    if (checkPwd.value === guideKey) {
-      isSuccess.value = true
-      isModalViewed.value = false
-    } else {
-      alert('잘못된 비밀번호을 입력하셨습니다.')
-    }
-  }  
 </script>
 
 <style lang="scss">
@@ -139,7 +193,7 @@
         th,
         td
         {
-            height: 50px; 
+            height: 40px; 
             vertical-align: middle; 
             text-align: left; 
             line-height: 13px; 

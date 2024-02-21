@@ -22,7 +22,7 @@ $textareaHeight: 100px;
       color: $inputColor;
     }
     &:focus {
-      border-color:$pointColor;
+      border-color:$bordersColor;
       outline:none;
     }
     &:disabled {

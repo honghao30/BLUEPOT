@@ -4,7 +4,7 @@ import NotFound from '@/views/errors/404.vue'
 import Login from './menus/Login'
 // import Store from './menus/Store'
 import Settlement from './menus/Settlement'
-// import PubGuides from './menus/pubGuide'
+import PubGuides from './menus/pubGuide'
 
 // 라우터 
 const routes = [
@@ -14,7 +14,8 @@ const routes = [
     },   
     ...Login,
     // ...Store,
-    ...Settlement  
+    ...Settlement,
+    ...PubGuides  
 ]
 // 라우터 생성
 const router = createRouter({

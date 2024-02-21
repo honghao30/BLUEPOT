@@ -41,7 +41,7 @@ body {
   }
 
 .blind,.irtext { @include hiddens;}
-.point {color:$pointColor;font-style:normal}
+// .point {color:$pointColor;font-style:normal}
 .w--auto {width: auto !important}
 
 

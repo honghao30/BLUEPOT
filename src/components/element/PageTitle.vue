@@ -65,3 +65,8 @@
     }
   }
 </script>
+
+<style lang="scss">
+.page-title2 {font-size: 25px;margin-bottom: 10px;}
+.page-title3 {font-size: 20px;margin: 15px 0;}
+</style>
